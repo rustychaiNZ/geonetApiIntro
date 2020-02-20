@@ -3,16 +3,26 @@ $(document).ready(function(){
 	
 	// accessing apiKey from config.json
 	// apiKey = '[{"key" : "yourKeyGoesHere"}]';
-	var myKey = JSON.parse(apiKey); // Convert JSON data into js object
-	console.log(myKey[0]);
-	myKey = myKey[0].key;
+	// var myKey = JSON.parse(apiKey); // Convert JSON data into js object
+	// console.log(myKey[0]);
+	// myKey = myKey[0].key;
 	
+	// Dynamically creating the script element
+	// var script = document.createElement('script');
+	// Giving the src attribute to the google plug in from external json file
+	// script.src = 'https://maps.googleapis.com/maps/api/js?key=' + myKey + '&callback=initMap';
+	// Appending to the body of index.html
+	// document.getElementsByTagName('body')[0].appendChild(script);
+
+	var myKey = JSON.parse(apiKey); // Convert JSON data into js object
+
 	// Dynamically creating the script element
 	var script = document.createElement('script');
 	// Giving the src attribute to the google plug in from external json file
-	script.src = 'https://maps.googleapis.com/maps/api/js?key=' + myKey;
+	script.src = 'https://maps.googleapis.com/maps/api/js?key=' + myKey[0].key + '&callback=initMap';
 	// Appending to the body of index.html
 	document.getElementsByTagName('body')[0].appendChild(script);
+
 
 	var i;
 	var k;
@@ -46,6 +56,7 @@ $(document).ready(function(){
 	});
 });
 
+var map;
 function initMap(allMarkers) {
 	var marker = [];
 	var Wellington = {lat: -41.2865, lng: 174.7762};
@@ -54,11 +65,10 @@ function initMap(allMarkers) {
 		zoom: 6,
 		center: Wellington  
 	});
-	var i;
-	var myIcon = {
-		url : 'http://maps.google.cim/mapfiles/kml/shapes/sailing.png' , 
-		scaledSize: new google.maps.Size(50, 50)
-	};
+	// var myIcon = {
+	// 	url : 'http://maps.google.cim/mapfiles/kml/shapes/sailing.png' , 
+	// 	scaledSize: new google.maps.Size(50, 50)
+	// };
 
 
 
