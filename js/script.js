@@ -18,7 +18,6 @@ $(document).ready(function(){
 	// Appending to the body of index.html
 	// document.getElementsByTagName('body')[0].appendChild(script);
 
-	var i;
 	var k;
 	var obj = {};
 	var markers = [];
@@ -33,7 +32,7 @@ $(document).ready(function(){
 		success : function(data){
 			console.log(data);
 			var markers = [];
-
+			var i;
 			// Loops through the object with the arrays
 			for(i = 0; i < data.features.length; i++){
 				// Loops through coordinates and displays them in the console
@@ -50,9 +49,9 @@ $(document).ready(function(){
 
 				// Pushes long and lattitude into the obj object
 				markers.push(obj);
+				console.log(markers);
+				initMap(markers);
 			}
-			console.log(markers);
-			initMap(markers);
 		} , 
 		error : function(){
 			alert('You done goofed somewhere in your code');
@@ -80,7 +79,8 @@ $(document).ready(function(){
 			url : 'http://maps.google.com/mapfiles/kml/shapes/sailing.png' , 
 			scaledSize: new google.maps.Size(50, 50)
 		};
-	
+
+		var i;
 		for(i = 0; i < allMarkers.length; i++){
 			var latLng = {lat:allMarkers[i].lat , lng:allMarkers[i].lng};
 			
