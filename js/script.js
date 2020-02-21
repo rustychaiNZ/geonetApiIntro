@@ -18,8 +18,7 @@ $(document).ready(function(){
 	// Appending to the body of index.html
 	// document.getElementsByTagName('body')[0].appendChild(script);
 
-	var k;
-	var obj = {};
+	var i;
 	var markers = [];
 	// varibale for storing the users inputted end point
 	var endPoint;
@@ -42,16 +41,16 @@ $(document).ready(function(){
 					// latt = data.features[i].geometry.coordinates[1];
 					// console.log('latitude ' + latt + ' longditude ' + long);
 				// }
-
+				var obj = {};
 				// stores coordinates in an object
 				obj.lat = JSON.parse(data.features[i].geometry.coordinates[1]);
 				obj.lng = JSON.parse(data.features[i].geometry.coordinates[0]);
 
 				// Pushes long and lattitude into the obj object
 				markers.push(obj);
-				console.log(markers);
-				initMap(markers);
 			}
+			console.log(markers);
+				initMap(markers);
 		} , 
 		error : function(){
 			alert('You done goofed somewhere in your code');
@@ -80,9 +79,9 @@ $(document).ready(function(){
 			scaledSize: new google.maps.Size(50, 50)
 		};
 
-		var i;
-		for(i = 0; i < allMarkers.length; i++){
-			var latLng = {lat:allMarkers[i].lat , lng:allMarkers[i].lng};
+		var k;
+		for(k = 0; k < allMarkers.length; k++){
+			var latLng = {lat:allMarkers[k].lat , lng:allMarkers[k].lng};
 			
 			marker = new google.maps.Marker({
 				position: latLng,
