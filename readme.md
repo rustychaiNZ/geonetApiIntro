@@ -8,7 +8,7 @@ To view this project, you are required to use a googlemaps api key. You can get 
 Once you have an api key:
 * Create a config.json file inside of the js folder
 * inside of that file:
-	* Type: apiKey = '[{"key" : "your key goes here"}]'
+	* Type: apiKey = '[{"key" : "your key goes here"}]';
 * Then the google map should appear
 
 ### Work done in Collabaration:
