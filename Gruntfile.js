@@ -30,7 +30,10 @@ module.exports = function(grunt) {
 		},
 		// Js Hint
 		jshint: {
-			all: ['Gruntfile.js', 'js/*.js']
+			all: ['Gruntfile.js', 'js/*.js'],
+			options: {
+				'esversion' : 6
+			}
 		}
 	});
 
