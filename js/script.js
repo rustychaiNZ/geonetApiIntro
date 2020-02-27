@@ -1,6 +1,13 @@
 // Retrieving Geonet information
+$('#bg').hide();
+
 $(document).ready(function(){
-	
+
+	$('#submit').on('click',function(){
+		$('#bg').toggle();
+	});
+
+
 	// accessing apiKey from config.json
 	// apiKey = '[{"key" : "yourKeyGoesHere"}]';
 	// var myKey = JSON.parse(apiKey); // Convert JSON data into js object
@@ -10,7 +17,7 @@ $(document).ready(function(){
 	var myKey = JSON.parse(apiKey);
 	console.log(myKey[0]);
 	myKey = myKey[0].key;
-	
+
 	// Dynamically creating the script element
 	// var script = document.createElement('script');
 	// Giving the src attribute to the google plug in from external json file
@@ -26,8 +33,8 @@ $(document).ready(function(){
 	// ajax file being retrieved from geonet
 	$.ajax({
 		url : 'https://api.geonet.org.nz/intensity?type=reported' ,
-		type : 'GET' , 
-		dataType : 'json' , 
+		type : 'GET' ,
+		dataType : 'json' ,
 		success : function(data){
 			console.log(data);
 			var markers = [];
@@ -51,7 +58,7 @@ $(document).ready(function(){
 			}
 			console.log(markers);
 				initMap(markers);
-		} , 
+		} ,
 		error : function(){
 			alert('You done goofed somewhere in your code');
 		}
@@ -75,19 +82,21 @@ $(document).ready(function(){
 			document.getElementById('map'), {zoom: 6, center: Wellington});
 		// var i;
 		var myIcon = {
-			url : 'http://maps.google.com/mapfiles/kml/shapes/sailing.png' , 
+			url : 'http://maps.google.com/mapfiles/kml/shapes/sailing.png' ,
 			scaledSize: new google.maps.Size(50, 50)
 		};
 
 		var k;
 		for(k = 0; k < allMarkers.length; k++){
 			var latLng = {lat:allMarkers[k].lat , lng:allMarkers[k].lng};
-			
+
 			marker = new google.maps.Marker({
 				position: latLng,
 				map: map
 			});
 		}
 	}
-}); // Document ready ends
 
+
+
+}); // Document ready ends
