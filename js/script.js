@@ -25,7 +25,7 @@ $(document).ready(function(){
 
 	// ajax file being retrieved from geonet
 	$.ajax({
-		url : 'https://api.geonet.org.nz/intensity?type=reported' ,
+		url : 'https://api.geonet.org.nz/intensity?type=measured&publicID=2013p407387' ,
 		type : 'GET' , 
 		dataType : 'json' , 
 		success : function(data){
@@ -34,13 +34,6 @@ $(document).ready(function(){
 			var i;
 			// Loops through the object with the arrays
 			for(i = 0; i < data.features.length; i++){
-				// Loops through coordinates and displays them in the console
-				// for(k = 0; k < data.features[i].geometry.coordinates.length; k++){
-					// console.log(data.features[i].geometry.coordinates[k]);
-					// long = data.features[i].geometry.coordinates[0];
-					// latt = data.features[i].geometry.coordinates[1];
-					// console.log('latitude ' + latt + ' longditude ' + long);
-				// }
 				var obj = {};
 				// stores coordinates in an object
 				obj.lat = JSON.parse(data.features[i].geometry.coordinates[1]);
