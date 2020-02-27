@@ -25,7 +25,7 @@ $(document).ready(function(){
 
 	// ajax file being retrieved from geonet
 	$.ajax({
-		url : 'https://api.geonet.org.nz/intensity?type=measured&publicID=2013p407387' ,
+		url : 'https://api.geonet.org.nz/quake?MMI=3' ,
 		type : 'GET' , 
 		dataType : 'json' , 
 		success : function(data){
@@ -54,7 +54,7 @@ $(document).ready(function(){
 
 	//dynamically creating script tag and appending to the html body including the apikey
 	var script = document.createElement('script');
-	script.src = 'https://maps.googleapis.com/maps/api/js?key='+ myKey ;
+	script.src = 'https://maps.googleapis.com/maps/api/js?key='+ myKey + '&callback=getGeo';
 	document.getElementsByTagName('body')[0].appendChild(script);
 
 	// Adds map markers based on cooridinates
