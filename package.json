@@ -24,10 +24,11 @@
     "grunt-contrib-jshint": "^2.1.0",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-watch": "^1.1.0",
-    "jquery": "^3.4.1",
-    "popper.js": "^1.16.1"
+    "jquery": "^3.4.1"
   },
   "dependencies": {
-    "npm-watch": "^0.6.0"
+    "@popperjs/core": "^2.0.6",
+    "npm-watch": "^0.6.0",
+    "popper.js": "^1.16.1"
   }
 }
